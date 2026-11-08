@@ -93,7 +93,7 @@ function MemberAvatars() {
       {AVATARS.map((c, i) => (
         <div key={i} className="relative">
           <div className={`h-7 w-7 rounded-full border-[3px] border-card ${c}`} />
-          {i < 3 && <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-card bg-online" />}
+          {i < 3 && <span className="absolute -bottom-0.5 -right-0.5 z-10 h-3 w-3 rounded-full border-2 border-card bg-online" />}
         </div>
       ))}
     </div>
