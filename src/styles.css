@@ -155,26 +155,59 @@
 }
 
 :root {
-  --background: oklch(0.32 0.012 270);
+  --background: oklch(0.2 0.03 30);
   --foreground: oklch(0.95 0.005 270);
-  --card: oklch(0.335 0.011 270);
-  --muted-foreground: oklch(0.72 0.012 270);
+  --card: oklch(0.255 0.006 270);
+  --secondary: oklch(0.225 0.006 270);
+  --muted-foreground: oklch(0.73 0.01 270);
   --primary: oklch(0.585 0.2 277);
   --primary-hover: oklch(0.52 0.19 277);
   --primary-foreground: oklch(1 0 0);
   --online: oklch(0.7 0.17 150);
-  --ignis: linear-gradient(135deg, oklch(0.68 0.2 40), oklch(0.55 0.22 20));
+  --success: oklch(0.6 0.15 150);
+  --ember: oklch(0.7 0.19 45);
+  --star: oklch(0.78 0.14 50);
+  --star-warm: oklch(0.65 0.21 25);
+  --ignis: linear-gradient(135deg, oklch(0.72 0.19 55), oklch(0.55 0.22 25));
+  --shadow-card: 0 8px 24px oklch(0 0 0 / 0.35);
 }
 @theme inline {
   --color-primary-hover: var(--primary-hover);
   --color-online: var(--online);
+  --color-success: var(--success);
+  --color-ember: var(--ember);
+  --color-star: var(--star);
+  --color-star-warm: var(--star-warm);
+  --color-avatar-1: oklch(0.65 0.2 25);
+  --color-avatar-2: oklch(0.72 0.17 55);
+  --color-avatar-3: oklch(0.6 0.15 250);
+  --color-avatar-4: oklch(0.7 0.15 150);
+  --color-avatar-5: oklch(0.55 0.02 270);
+  --shadow-card: var(--shadow-card);
   --font-sans: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Ginto", "Noto Sans", sans-serif;
 }
 @utility bg-ignis { background-image: var(--ignis); }
+@utility banner {
+  background:
+    radial-gradient(circle at 20% 120%, oklch(0.75 0.19 60 / 0.9), transparent 55%),
+    radial-gradient(circle at 80% 0%, oklch(0.5 0.22 25), transparent 60%),
+    linear-gradient(135deg, oklch(0.35 0.12 25), oklch(0.6 0.2 40));
+}
 @utility invite-bg {
-  background-color: var(--background);
-  background-image:
-    radial-gradient(ellipse at 15% 85%, oklch(0.585 0.2 277 / 0.35), transparent 55%),
-    radial-gradient(ellipse at 85% 15%, oklch(0.585 0.2 277 / 0.25), transparent 50%);
+  background:
+    radial-gradient(ellipse at 100% 100%, oklch(0.6 0.21 40 / 0.85), transparent 45%),
+    radial-gradient(ellipse at 75% 25%, oklch(0.45 0.19 28 / 0.7), transparent 55%),
+    radial-gradient(ellipse at 30% 75%, oklch(0.14 0.05 20), transparent 60%),
+    linear-gradient(110deg, oklch(0.15 0.05 20), oklch(0.28 0.12 28) 60%, oklch(0.45 0.18 35));
 }
 body { font-family: var(--font-sans); }
+.pixel { opacity: .55; filter: blur(.5px); animation: twinkle 4s ease-in-out infinite; }
+.sparkle { opacity: .5; animation: twinkle 5s ease-in-out infinite; }
+.orb { filter: blur(10px); animation: float 9s ease-in-out infinite; }
+.card-in { animation: card-in .45s cubic-bezier(.2,.8,.2,1) both; }
+.dot { animation: bounce-dot .8s ease-in-out infinite; }
+@keyframes twinkle { 0%,100% { opacity: .25 } 50% { opacity: .75 } }
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-14px) } }
+@keyframes card-in { from { opacity: 0; transform: translateY(12px) scale(.98) } to { opacity: 1; transform: none } }
+@keyframes bounce-dot { 0%,100% { opacity: .4; transform: translateY(0) } 50% { opacity: 1; transform: translateY(-3px) } }
