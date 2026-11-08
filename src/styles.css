@@ -153,3 +153,28 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --background: oklch(0.32 0.012 270);
+  --foreground: oklch(0.95 0.005 270);
+  --card: oklch(0.335 0.011 270);
+  --muted-foreground: oklch(0.72 0.012 270);
+  --primary: oklch(0.585 0.2 277);
+  --primary-hover: oklch(0.52 0.19 277);
+  --primary-foreground: oklch(1 0 0);
+  --online: oklch(0.7 0.17 150);
+  --ignis: linear-gradient(135deg, oklch(0.68 0.2 40), oklch(0.55 0.22 20));
+}
+@theme inline {
+  --color-primary-hover: var(--primary-hover);
+  --color-online: var(--online);
+  --font-sans: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+@utility bg-ignis { background-image: var(--ignis); }
+@utility invite-bg {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse at 15% 85%, oklch(0.585 0.2 277 / 0.35), transparent 55%),
+    radial-gradient(ellipse at 85% 15%, oklch(0.585 0.2 277 / 0.25), transparent 50%);
+}
+body { font-family: var(--font-sans); }
